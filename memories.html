@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Anniversary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe4f2, #ffd6eb);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #d63384;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 28px;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 25px;
+      padding: 20px;
+      margin: 20px;
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      font-size: 20px;
+      color: #d63384;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .section h2 span {
+      margin-right: 8px;
+    }
+
+    .card {
+      background: #ffeef6;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      background: #ffd6eb;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+
+    img.character {
+      width: 120px;
+      margin: 20px 0;
+    }
+
+    /* Slideshow styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 10px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s ease;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(0,0,0,0.5);
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .dot-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #d63384;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 8% auto;
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 500px;
+      color: #333;
+      position: relative;
+      text-align: left;
+    }
+
+    .modal h3 {
+      color: #d63384;
+      margin-top: 0;
+    }
+
+    .modal img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 10px 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #d63384;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy 1 Year Anniversary Day! 💝</h1>
+  <img src="1.png" class="character" alt="Cute Bear" />
+
+  <!-- Love Letters Section -->
+  <div class="section">
+    <h2><span>❤️</span> Love Letters</h2>
+    <div class="card" onclick="openModal('love')">
+      <div class="card-title">About Mama</div>
+      <div class="card-subtitle">Click to open</div>
+    </div>
+    <div class="card" onclick="openModal('forever')">
+      <div class="card-title">Anniversary Letters</div>
+      <div class="card-subtitle">Click to open</div>
+    </div>
+  </div>
+
+  <!-- Our Memories Section with Slideshow -->
+  <div class="section">
+    <h2>📸 Our Memories</h2>
+    
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="3.jpg" alt="Memory 1" />
+      </div>
+      <div class="mySlides fade">
+        <img src="2.jpg" alt="Memory 2" />
+      </div>
+      <div class="mySlides fade">
+        <img src="1.jpg" alt="Memory 3" />
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <div class="dot-container">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="loveModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('love')">&times;</span>
+      <h3>မမအကြောင်းကို အတင်းတုပ်မှာကွ😡❤️‍🔥</h3>
+      <p>
+        မောင့်မမရေ... ဝင်လာခါစက ပုံလေးကိုမြင်ရဲ့လားဗျ အဲ့တာကလေ မောင့်က မမကို ဘယ်လောက်ထိ အများကြီးချစ်ကြောင်း ရှင်းပြနေတဲ့ပုံလေး ဟီး။
+        တစ်နှစ်အတွင်းမမအကြောင်းဘာတွေသိခဲ့ရလဲဆိုရင်... (၁) ချစ်ဖို့ကောင်းတယ် (၂) ကကျ ချစ်ဖို့ကောင်းတာပဲ (၃) ကျတော့ ပိုချစ်ဖို့ကောင်းသွားကော (၄) ကျ အများကြီးချစ်ဖို့ကောင်းပြီးချွဲတတ်လွန်းတဲ့မောင့်ကလေးလေးဖြစ်သွားပါလေကော >.<
+        မမကလေ မထင်ရလောက်အောင် ချစ်တတ်တာ တစ်ခါတစ်လေ အထင်လွဲမိသွားရင်တောင်မှ မမဘက်က ရှင်းပြနေတာလေးတွေမြင်မိရင် မောင့်မှားပီလားတောင်တွေးမိလောက်တဲ့အထိပဲ။
+      </p>
+      <img src="2.png" alt="Love Image 1" />
+      <p>
+        မမရဲ့အရာရာတိုင်းကိုသဘောကျတယ် မမမှာ လိုအပ်ချက်မရှိဘူးလို့ကို မြင်တဲ့အထိ အများကြီးသဘောကျတယ်။ ကမ္ဘာပေါ်က တခြားမိန်းကလေးတွေအကုန်လုံးက မမကိုဆို ယှဉ်လို့မရလောက်တဲ့အထိလေ မောင့်အမြင်မှာ မမက နတ်သမီးလေးလိုပဲ 🥺💖
+        မောင့် ဒီကနေ့ ဒီအချိန်မှာသစ္စာဆိုပြီးကတိပေးတယ်နော် မောင့်မမကိုအများကြီးချစ်သွားပါတယ် မမ တစ်ယောက်တည်းကိုပဲ ချစ်သွားပါမယ် မမကိုပဲ မြင်ပါမယ်။ မမကိုပဲကြည့်ပါမယ်ဗျ။
+      </p>
+      <p>
+        Love You So Much... My Honey!! It's only you, it's always you. 
+      </p>
+        </div>
+  </div>
+
+  <div id="foreverModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('forever')">&times;</span>
+      <h3>"Happy 1-year Anniversary" ပါ မောင့်မရေ</h3>
+      <p>
+       မောင်မောင်လည်းလေ အရမ်းပျော်တာပဲသိလား တစ်နှစ်ဆိုတာကို မောင်မောင့်လည်း အများကြီးကိုမှ မျှော်လင့် နေခဲ့ရတာပါဗျ။ တကယ်တမ်း တစ်နှစ်ပြည့်လာတော့လည်း ခဏလေးလိုပဲ… မဖြစ်သေးဘူးလေနော် နှစ် ၁၀၀ လောက်မှပဲ ကျေနပ်မိတော့မယ်ထင်တယ် ဟီးဟီး
+      </p>
+      <p>
+        အကုန်လုံးကိုဖြတ်ကျော်ပြီး အခုဆို တစ်နှစ်တောင်ရှိလာခဲ့ပြီ။ မမဘက်ကလည်းအများကြီးသည်းခံပေးခဲ့လို့ ကျေးဇူးအများကြီးတင်ပါတယ်ခင်ဗျာ။ မောင့်မမက စိတ်တိုတုန်းလေးခဏပဲ ပြီးရင်မောင့်ကို မိန်းကလေးပီပီသသ အမြဲတမ်း အရင်လာချော့ပေးနေလို့လည်း ဆူပါဝူးမန်းကြီးရေ ကျေးဇူးပါနော်….
+      </p>
+      <p>
+        မမကိုပဲ သစ္စာရှိရှိနဲ့ တစ်ဘဝလုံးစာပုံအပ်ပေးပြီးချစ်သွားပါမယ့်ဗျာ။ အချင်းချင်း ဒီထပ်နားလည်ပေးနိုင်အောင်လည်း ကြိုးစားကြမယ်နော်။ ဒီ relationship လေးအချိန်အကြာကြီး တည်မြဲသွားနိုင်အောင်လည်း အတူတူထိန်းသိမ်းကြမယ်နော်ဗျ။
+      </p>
+      <p>
+        အရမ်းရင်ခုန်မိတာပဲ… မမကို လက်ထပ်ခွင့်တောင်းရဦးမှာတွေ… ပြောရမှာ ရှက်ပေမဲ့ wedding day လေးကျ အရမ်းကိုမှ လှနေမဲ့ မမကို မြင်ရမှာတွေ… အတူတူဖက်အိပ်ကြမှာတွေ… အာဘွားတွေအများကြီးပေးကြမှာတွေ… ပျော်ရွှင်တဲ့မိသားစုလေးကို အတူတည်ဆောက်ကြမှာတွေ… ဒီလိုကျတော့ အနာဂတ်ကြီးက လှနေရောပဲနော်မမ
+      </p>
+      <p>
+        အတူတူကြိုးစားကြရအောင်နော်ဗျ ဖြစ်ချင်တာတွေလည်းအများကြီးရှိသလို ကတိတွေလည်းအများကြီး ပေးခဲ့ကြတာနော် မောင်မောင်တို့တွေက။ နီးစပ်ချင်တဲ့နေ့ရက်တွေကလည်း တဖြည်းဖြည်းရောက်လာမှာ။ တစ်ခါတစ်လေ အကွာအဝေးကြီးကို မုန်းမိပါရဲ့ အဲ့လိုပြောလို့လည်း မမကို မျက်နှာချင်းဆိုင်ရဲသေးဘူးသိလား မောင့်မှာရှက်လွန်းလို့…
+      </p>
+      <p>
+        အများကြီးတန်ဖိုးထားပြီး မမကသာ မောင့်ကိုးကွယ်ရာဖြစ်နေခဲ့ပါပြီ။ မမ မရှိပဲနဲ့လည်း မနေနိုင်တော့ဘူး မမထားသွားမှာတွေကိုလည်း မတွေးချင်တော့ဘူး။ တစ်ခုပဲတောင်းဆိုပါရစေနော် မမကိုပြောခိုင်းတဲ့ စကားလေးလိုပဲလေ မောင်မောင့်ကို 
+      </p>
+      <P>
+        “အများကြီးချစ်ပေးပါ။ အမြဲအနားမှာရှိနေပေးပါ။ အမြဲမောင့်ဘက်မှာပဲ ရှိနေပေးပါနော်”
+      </P>
+      <p>
+        အချိန်တွေဖြတ်ကျော်ပြီး အတူတွေ့ကြမယ်။ အတူနေကြမယ်။ လက်ထပ်ယူကြမယ်။ မိသားစုဘဝလေး တည်ဆောက်ကြရအောင်နော်မမ
+      </p>
+      <p>
+        အများကြီးချစ်တယ်ဗျ အရမ်းချစ်တယ် အာဘွားတွေလည်းအများကြီးယူပါနော် စောစောအိပ်ဆိုလို့ ဒီလောက်ပဲ ရေးလိုက်တော့မယ် နောက်လူတွေ့မှာ ချစ်ကြောင်းထပ်ပြောမယ်။ များကြီးချစ်တယ် တစ်ဦးတည်းသော ချစ်ရသူလေး မမအိမ့်ရေ…
+      </p>
+       <p>
+        My heart belongs to you — now, tomorrow, and always. ❤️
+      </p>
+      <img src="3.png" alt="Forever Love Image 1" />
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Slideshow Logic
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+    // Modal Logic
+    function openModal(type) {
+      document.getElementById(type + "Modal").style.display = "block";
+    }
+
+    function closeModal(type) {
+      document.getElementById(type + "Modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const loveModal = document.getElementById("loveModal");
+      const foreverModal = document.getElementById("foreverModal");
+      if (event.target === loveModal) loveModal.style.display = "none";
+      if (event.target === foreverModal) foreverModal.style.display = "none";
+    };
+  </script>
+
+</body>
+</html>
